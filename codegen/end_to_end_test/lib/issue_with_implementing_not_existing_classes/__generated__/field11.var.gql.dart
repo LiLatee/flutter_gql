@@ -16,6 +16,8 @@ abstract class GField11Vars
   factory GField11Vars([void Function(GField11VarsBuilder b) updates]) =
       _$GField11Vars;
 
+  factory GField11Vars.create() => GField11Vars();
+
   static Serializer<GField11Vars> get serializer => _$gField11VarsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(

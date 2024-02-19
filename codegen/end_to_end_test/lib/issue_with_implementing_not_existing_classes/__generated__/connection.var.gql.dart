@@ -16,6 +16,8 @@ abstract class GConnectionVars
   factory GConnectionVars([void Function(GConnectionVarsBuilder b) updates]) =
       _$GConnectionVars;
 
+  factory GConnectionVars.create() => GConnectionVars();
+
   static Serializer<GConnectionVars> get serializer =>
       _$gConnectionVarsSerializer;
 

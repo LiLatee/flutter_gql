@@ -15,6 +15,8 @@ abstract class GField1Vars implements Built<GField1Vars, GField1VarsBuilder> {
   factory GField1Vars([void Function(GField1VarsBuilder b) updates]) =
       _$GField1Vars;
 
+  factory GField1Vars.create() => GField1Vars();
+
   static Serializer<GField1Vars> get serializer => _$gField1VarsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(

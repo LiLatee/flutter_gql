@@ -15,6 +15,8 @@ abstract class GField2Vars implements Built<GField2Vars, GField2VarsBuilder> {
   factory GField2Vars([void Function(GField2VarsBuilder b) updates]) =
       _$GField2Vars;
 
+  factory GField2Vars.create() => GField2Vars();
+
   static Serializer<GField2Vars> get serializer => _$gField2VarsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(

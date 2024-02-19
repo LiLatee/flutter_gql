@@ -129,6 +129,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(CustomField)]),
           () => new ListBuilder<CustomField>())
       ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GConnectionData_field1)]),
+          () => new ListBuilder<GConnectionData_field1>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>())
       ..addBuilderFactory(
