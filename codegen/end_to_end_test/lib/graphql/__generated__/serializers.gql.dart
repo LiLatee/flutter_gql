@@ -44,7 +44,6 @@ import 'package:end_to_end_test/fragments/__generated__/hero_with_fragments.data
         GHeroWithFragmentsData_hero,
         GHeroWithFragmentsData_hero_friendsConnection,
         GHeroWithFragmentsData_hero_friendsConnection_edges,
-        GHeroWithFragmentsData_hero_friendsConnection_edges_node,
         GcomparisonFieldsData,
         GcomparisonFieldsData_friendsConnection,
         GcomparisonFieldsData_friendsConnection_edges,
@@ -60,7 +59,6 @@ import 'package:end_to_end_test/fragments/__generated__/hero_with_interface_subt
         GheroFieldsFragmentData__asHuman_friends,
         GhumanFieldsFragmentData_friends,
         GHeroWithInterfaceSubTypedFragmentsData,
-        GHeroWithInterfaceSubTypedFragmentsData_hero,
         GdroidFieldsFragmentData,
         GheroFieldsFragmentData__asDroid,
         GheroFieldsFragmentData__asHuman,
@@ -93,6 +91,7 @@ import 'package:end_to_end_test/fragments/__generated__/multiple_fragments.var.g
 import 'package:end_to_end_test/graphql/__generated__/schema.schema.gql.dart'
     show
         GColorInput,
+        GCustomFieldInput,
         GEpisode,
         GISODate,
         GJson,
@@ -113,6 +112,27 @@ import 'package:end_to_end_test/interfaces/__generated__/hero_for_episode.req.gq
     show GHeroForEpisode;
 import 'package:end_to_end_test/interfaces/__generated__/hero_for_episode.var.gql.dart'
     show GDroidFragmentVars, GHeroForEpisodeVars;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/connection.data.gql.dart'
+    show
+        GConnectionData,
+        GConnectionData_field1,
+        GConnectionData_field1_field11,
+        GConnectionData_field1_field11_field111,
+        GConnectionData_field2;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/connection.var.gql.dart'
+    show GConnectionVars;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/field1.data.gql.dart'
+    show GField1Data;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/field1.var.gql.dart'
+    show GField1Vars;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/field11.data.gql.dart'
+    show GField11Data, GField11Data_field111;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/field11.var.gql.dart'
+    show GField11Vars;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/field2.data.gql.dart'
+    show GField2Data;
+import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/field2.var.gql.dart'
+    show GField2Vars;
 import 'package:end_to_end_test/no_vars/__generated__/hero_no_vars.data.gql.dart'
     show GHeroNoVarsData, GHeroNoVarsData_hero;
 import 'package:end_to_end_test/no_vars/__generated__/hero_no_vars.req.gql.dart'
@@ -125,6 +145,12 @@ import 'package:end_to_end_test/scalars/__generated__/review_with_date.req.gql.d
     show GReviewWithDate;
 import 'package:end_to_end_test/scalars/__generated__/review_with_date.var.gql.dart'
     show GReviewWithDateVars;
+import 'package:end_to_end_test/variables/__generated__/create_custom_field.data.gql.dart'
+    show GCreateCustomFieldData;
+import 'package:end_to_end_test/variables/__generated__/create_custom_field.req.gql.dart'
+    show GCreateCustomField;
+import 'package:end_to_end_test/variables/__generated__/create_custom_field.var.gql.dart'
+    show GCreateCustomFieldVars;
 import 'package:end_to_end_test/variables/__generated__/create_review.data.gql.dart'
     show GCreateReviewData, GCreateReviewData_createReview;
 import 'package:end_to_end_test/variables/__generated__/create_review.req.gql.dart'
@@ -137,6 +163,12 @@ import 'package:end_to_end_test/variables/__generated__/human_with_args.req.gql.
     show GHumanWithArgs;
 import 'package:end_to_end_test/variables/__generated__/human_with_args.var.gql.dart'
     show GHumanWithArgsVars;
+import 'package:end_to_end_test/variables/__generated__/list_argument.data.gql.dart'
+    show GreviewsWithListArgumentData, GreviewsWithListArgumentData_reviews;
+import 'package:end_to_end_test/variables/__generated__/list_argument.req.gql.dart'
+    show GreviewsWithListArgument;
+import 'package:end_to_end_test/variables/__generated__/list_argument.var.gql.dart'
+    show GreviewsWithListArgumentVars;
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
 
@@ -158,13 +190,30 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GAliasedHeroData_jediHero,
   GAliasedHeroVars,
   GColorInput,
+  GConnectionData,
+  GConnectionData_field1,
+  GConnectionData_field1_field11,
+  GConnectionData_field1_field11_field111,
+  GConnectionData_field2,
+  GConnectionVars,
+  GCreateCustomField,
+  GCreateCustomFieldData,
+  GCreateCustomFieldVars,
   GCreateReview,
   GCreateReviewData,
   GCreateReviewData_createReview,
   GCreateReviewVars,
+  GCustomFieldInput,
   GDroidFragmentData,
   GDroidFragmentVars,
   GEpisode,
+  GField11Data,
+  GField11Data_field111,
+  GField11Vars,
+  GField1Data,
+  GField1Vars,
+  GField2Data,
+  GField2Vars,
   GHeroForEpisode,
   GHeroForEpisodeData,
   GHeroForEpisodeData_hero__asDroid,
@@ -185,11 +234,9 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GHeroWithFragmentsData_hero,
   GHeroWithFragmentsData_hero_friendsConnection,
   GHeroWithFragmentsData_hero_friendsConnection_edges,
-  GHeroWithFragmentsData_hero_friendsConnection_edges_node,
   GHeroWithFragmentsVars,
   GHeroWithInterfaceSubTypedFragments,
   GHeroWithInterfaceSubTypedFragmentsData,
-  GHeroWithInterfaceSubTypedFragmentsData_hero,
   GHeroWithInterfaceSubTypedFragmentsVars,
   GHumanWithArgs,
   GHumanWithArgsData,
@@ -248,5 +295,9 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GhumanFieldsFragmentData_friends__asHuman,
   GhumanFieldsFragmentData_friends__base,
   GhumanFieldsFragmentVars,
+  GreviewsWithListArgument,
+  GreviewsWithListArgumentData,
+  GreviewsWithListArgumentData_reviews,
+  GreviewsWithListArgumentVars,
 ])
 final Serializers serializers = _serializersBuilder.build();

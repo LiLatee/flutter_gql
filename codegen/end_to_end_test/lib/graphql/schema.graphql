@@ -8,11 +8,10 @@ schema {
 
 directive @extends on OBJECT | INTERFACE
 
-
 # The query type, represents all of the entry points into our object graph
 type Query {
   hero(episode: Episode): Character
-  reviews(episode: Episode!): [Review]
+  reviews(episode: Episode!, stars: [Int!]): [Review]
   search(text: String): [SearchResult]
   character(id: ID!): Character
   droid(id: ID!): Droid
@@ -24,6 +23,7 @@ type Query {
 # The mutation type, represents all updates we can make to our data
 type Mutation {
   createReview(episode: Episode, review: ReviewInput!, createdAt: Date): Review
+  createCustomField(input: CustomFieldInput!): CustomField
 }
 
 # The subscription type, represents all subscriptions we can make to our data
@@ -158,6 +158,11 @@ input ReviewInput {
   seenOn: [Date]
 }
 
+input CustomFieldInput {
+  id: ID!
+  customField: CustomField
+}
+
 # The input object sent when passing in a color
 input ColorInput {
   red: Int!
@@ -205,3 +210,28 @@ scalar ISODate
 scalar CustomField
 
 scalar Json
+
+### START - issue_with_implementing_not_existing_classes
+type Connection {
+  field1: [Field1Edge!]!
+  field2: Field2!
+}
+
+type Field1Edge {
+  field11: Field11!
+}
+
+type Field1 {
+  field11: Field11
+}
+
+type Field11 {
+  field111: Field111!
+}
+
+type Field111 {
+}
+
+type Field2 {
+}
+### END - issue_with_implementing_not_existing_classes

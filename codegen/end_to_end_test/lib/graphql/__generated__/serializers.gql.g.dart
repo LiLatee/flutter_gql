@@ -13,13 +13,30 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GAliasedHeroData_jediHero.serializer)
       ..add(GAliasedHeroVars.serializer)
       ..add(GColorInput.serializer)
+      ..add(GConnectionData.serializer)
+      ..add(GConnectionData_field1.serializer)
+      ..add(GConnectionData_field1_field11.serializer)
+      ..add(GConnectionData_field1_field11_field111.serializer)
+      ..add(GConnectionData_field2.serializer)
+      ..add(GConnectionVars.serializer)
+      ..add(GCreateCustomField.serializer)
+      ..add(GCreateCustomFieldData.serializer)
+      ..add(GCreateCustomFieldVars.serializer)
       ..add(GCreateReview.serializer)
       ..add(GCreateReviewData.serializer)
       ..add(GCreateReviewData_createReview.serializer)
       ..add(GCreateReviewVars.serializer)
+      ..add(GCustomFieldInput.serializer)
       ..add(GDroidFragmentData.serializer)
       ..add(GDroidFragmentVars.serializer)
       ..add(GEpisode.serializer)
+      ..add(GField11Data.serializer)
+      ..add(GField11Data_field111.serializer)
+      ..add(GField11Vars.serializer)
+      ..add(GField1Data.serializer)
+      ..add(GField1Vars.serializer)
+      ..add(GField2Data.serializer)
+      ..add(GField2Vars.serializer)
       ..add(GHeroForEpisode.serializer)
       ..add(GHeroForEpisodeData.serializer)
       ..add(GHeroForEpisodeData_hero__asDroid.serializer)
@@ -40,11 +57,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GHeroWithFragmentsData_hero.serializer)
       ..add(GHeroWithFragmentsData_hero_friendsConnection.serializer)
       ..add(GHeroWithFragmentsData_hero_friendsConnection_edges.serializer)
-      ..add(GHeroWithFragmentsData_hero_friendsConnection_edges_node.serializer)
       ..add(GHeroWithFragmentsVars.serializer)
       ..add(GHeroWithInterfaceSubTypedFragments.serializer)
       ..add(GHeroWithInterfaceSubTypedFragmentsData.serializer)
-      ..add(GHeroWithInterfaceSubTypedFragmentsData_hero.serializer)
       ..add(GHeroWithInterfaceSubTypedFragmentsVars.serializer)
       ..add(GHumanWithArgs.serializer)
       ..add(GHumanWithArgsData.serializer)
@@ -103,12 +118,23 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GhumanFieldsFragmentData_friends__asHuman.serializer)
       ..add(GhumanFieldsFragmentData_friends__base.serializer)
       ..add(GhumanFieldsFragmentVars.serializer)
+      ..add(GreviewsWithListArgument.serializer)
+      ..add(GreviewsWithListArgumentData.serializer)
+      ..add(GreviewsWithListArgumentData_reviews.serializer)
+      ..add(GreviewsWithListArgumentVars.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(DateTime)]),
           () => new ListBuilder<DateTime>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CustomField)]),
           () => new ListBuilder<CustomField>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GConnectionData_field1)]),
+          () => new ListBuilder<GConnectionData_field1>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType.nullable(DateTime)]),
           () => new ListBuilder<DateTime?>())
@@ -160,7 +186,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [
             const FullType.nullable(GhumanFieldsFragmentData_friends)
           ]),
-          () => new ListBuilder<GhumanFieldsFragmentData_friends?>()))
+          () => new ListBuilder<GhumanFieldsFragmentData_friends?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType.nullable(GreviewsWithListArgumentData_reviews)
+          ]),
+          () => new ListBuilder<GreviewsWithListArgumentData_reviews?>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint
