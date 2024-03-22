@@ -1,3 +1,6 @@
+// ignore_for_file: unnecessary_type_check
+
+import 'package:end_to_end_test/fragments/__generated__/hero_with_interface_subtyped_fragments.data.gql.dart';
 import "package:test/test.dart";
 
 import 'package:end_to_end_test/fragments/__generated__/hero_with_fragments.data.gql.dart';
@@ -60,6 +63,38 @@ void main() {
       };
 
       expect(leia.toJson(), equals(json));
+    });
+
+    test('inline class implements all superclasses', () {
+      final ghumanFieldsFragmentData_friends_asHuman =
+          GhumanFieldsFragmentData_friends__asHuman((b) => b
+            ..G__typename = 'typename'
+            ..id = 'id'
+            ..name = 'name');
+
+      expect(
+          ghumanFieldsFragmentData_friends_asHuman
+              is GhumanFieldsFragmentData_friends,
+          true);
+      expect(
+          ghumanFieldsFragmentData_friends_asHuman
+              is GhumanFieldsFragmentData_friends__asHuman,
+          true);
+
+      final ghumanFieldsFragmentData_friends_asDroid =
+          GhumanFieldsFragmentData_friends__asDroid((b) => b
+            ..G__typename = 'typename'
+            ..id = 'id'
+            ..name = 'name');
+
+      expect(
+          ghumanFieldsFragmentData_friends_asDroid
+              is GhumanFieldsFragmentData_friends,
+          true);
+      expect(
+          ghumanFieldsFragmentData_friends_asDroid
+              is GhumanFieldsFragmentData_friends__asDroid,
+          true);
     });
   });
 }
