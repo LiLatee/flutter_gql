@@ -863,15 +863,6 @@ const ReviewInput = _i1.InputObjectTypeDefinitionNode(
       ),
       defaultValue: null,
     ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'createdDay'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'Date'),
-        isNonNull: true,
-      ),
-      defaultValue: null,
-    ),
   ],
 );
 const CustomFieldInput = _i1.InputObjectTypeDefinitionNode(

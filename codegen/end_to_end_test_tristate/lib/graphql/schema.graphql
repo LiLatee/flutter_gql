@@ -160,8 +160,6 @@ input ReviewInput {
   favorite_color: ColorInput
   # Date viewed
   seenOn: [DateTime]
-  # Use of a custom scalar.
-  createdDay: Date!
 }
 
 input CustomFieldInput {

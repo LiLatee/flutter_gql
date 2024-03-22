@@ -47,7 +47,6 @@ import 'package:end_to_end_test/fragments/__generated__/hero_with_fragments.data
         GcomparisonFieldsData,
         GcomparisonFieldsData_friendsConnection,
         GcomparisonFieldsData_friendsConnection_edges,
-        GcomparisonFieldsData_friendsConnection_edges_node,
         GheroDataData;
 import 'package:end_to_end_test/fragments/__generated__/hero_with_fragments.req.gql.dart'
     show GHeroWithFragments;
@@ -113,12 +112,7 @@ import 'package:end_to_end_test/interfaces/__generated__/hero_for_episode.req.gq
 import 'package:end_to_end_test/interfaces/__generated__/hero_for_episode.var.gql.dart'
     show GDroidFragmentVars, GHeroForEpisodeVars;
 import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/connection.data.gql.dart'
-    show
-        GConnectionData,
-        GConnectionData_field1,
-        GConnectionData_field1_field11,
-        GConnectionData_field1_field11_field111,
-        GConnectionData_field2;
+    show GConnectionData, GConnectionData_field1;
 import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/connection.var.gql.dart'
     show GConnectionVars;
 import 'package:end_to_end_test/issue_with_implementing_not_existing_classes/__generated__/field1.data.gql.dart'
@@ -192,9 +186,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GColorInput,
   GConnectionData,
   GConnectionData_field1,
-  GConnectionData_field1_field11,
-  GConnectionData_field1_field11_field111,
-  GConnectionData_field2,
   GConnectionVars,
   GCreateCustomField,
   GCreateCustomFieldData,
@@ -273,7 +264,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GcomparisonFieldsData,
   GcomparisonFieldsData_friendsConnection,
   GcomparisonFieldsData_friendsConnection_edges,
-  GcomparisonFieldsData_friendsConnection_edges_node,
   GcomparisonFieldsVars,
   GdroidFieldsFragmentData,
   GdroidFieldsFragmentVars,
