@@ -117,11 +117,19 @@ List<Spec> buildInlineFragmentClasses({
         type: inlineFragment.typeCondition!.on.name.value,
         typeOverrides: typeOverrides,
         superclassSelections: {
-          name: SourceSelections(url: null, selections: selections),
+          name: SourceSelections(
+            url: null,
+            selections: selections,
+          ),
           if (dataClassAliasMap.isNotEmpty)
-            ...Map.fromEntries(superclassSelections.entries.map((e) => MapEntry(
-                "${e.key}__as${inlineFragment.typeCondition!.on.name.value}",
-                e.value))),
+            ...Map.fromEntries(superclassSelections.entries
+                // TODO LiLatee check that where condition. If it is fine and why needed.
+                // Each inline fragment has to be a descendant of his parent,
+                // so the beginning of the name must be the same.
+                .where((e) => e.key == name)
+                .map((e) => MapEntry(
+                    "${e.key}__as${inlineFragment.typeCondition!.on.name.value}",
+                    e.value))),
         },
         built: built,
         whenExtensionConfig: whenExtensionConfig,

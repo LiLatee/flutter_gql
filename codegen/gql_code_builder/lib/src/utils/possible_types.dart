@@ -3,6 +3,32 @@ import "package:gql/ast.dart";
 /// implementation based on graphql_codegen:
 /// https://github.com/heftapp/graphql_codegen/blob/main/packages/graphql_codegen/lib/src/context.dart#L770
 extension PossibleTypes on DocumentNode {
+  /// Creates a Map containing:
+  /// - Unions and all types included in Union,
+  ///
+  /// e.g.
+  /// ```graphql
+  /// union SearchResult = Human | Droid | Starship
+  /// ```
+  /// will produce
+  /// ```dart
+  /// {"SearchResult": ("Human", "Droid", "Starship")}
+  /// ```
+  /// - Interfaces and all types implementing that interface.
+  ///
+  /// e.g.
+  /// ```graphql
+  /// type Droid implements Character {
+  /// ...
+  /// }
+  /// type Human implements Character {
+  /// ...
+  /// }
+  /// ```
+  /// will produce
+  /// ```dart
+  /// {"Character": ("Human", "Droid")}
+  /// ```
   Map<String, Set<String>> possibleTypesMap() {
     // TODO handle interfaces that extend other interfaces?
     // https://github.com/graphql/graphql-spec/pull/373

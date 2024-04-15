@@ -166,10 +166,7 @@ abstract class GheroFieldsFragment__asHuman_friends__base
 }
 
 abstract class GheroFieldsFragment__asHuman_friends__asDroid
-    implements
-        GheroFieldsFragment__asHuman_friends,
-        GhumanFieldsFragment_friends__asDroid,
-        GdroidFieldsFragment {
+    implements GheroFieldsFragment__asHuman_friends, GdroidFieldsFragment {
   @override
   String get G__typename;
   String get id;
@@ -181,9 +178,7 @@ abstract class GheroFieldsFragment__asHuman_friends__asDroid
 }
 
 abstract class GheroFieldsFragment__asHuman_friends__asHuman
-    implements
-        GheroFieldsFragment__asHuman_friends,
-        GhumanFieldsFragment_friends__asHuman {
+    implements GheroFieldsFragment__asHuman_friends {
   @override
   String get G__typename;
   String get id;
@@ -315,7 +310,6 @@ abstract class GheroFieldsFragmentData__asHuman
         Built<GheroFieldsFragmentData__asHuman,
             GheroFieldsFragmentData__asHumanBuilder>,
         GheroFieldsFragmentData,
-        GheroFieldsFragment__asHuman, // TODO it shouldn't be implemented.
         GhumanFieldsFragment {
   GheroFieldsFragmentData__asHuman._();
 
@@ -463,7 +457,6 @@ abstract class GheroFieldsFragmentData__asHuman_friends__asDroid
         Built<GheroFieldsFragmentData__asHuman_friends__asDroid,
             GheroFieldsFragmentData__asHuman_friends__asDroidBuilder>,
         GheroFieldsFragmentData__asHuman_friends,
-        GhumanFieldsFragment_friends__asDroid,
         GdroidFieldsFragment {
   GheroFieldsFragmentData__asHuman_friends__asDroid._();
 
@@ -504,8 +497,7 @@ abstract class GheroFieldsFragmentData__asHuman_friends__asHuman
     implements
         Built<GheroFieldsFragmentData__asHuman_friends__asHuman,
             GheroFieldsFragmentData__asHuman_friends__asHumanBuilder>,
-        GheroFieldsFragmentData__asHuman_friends,
-        GhumanFieldsFragment_friends__asHuman {
+        GheroFieldsFragmentData__asHuman_friends {
   GheroFieldsFragmentData__asHuman_friends__asHuman._();
 
   factory GheroFieldsFragmentData__asHuman_friends__asHuman(
@@ -545,7 +537,6 @@ abstract class GheroFieldsFragmentData__asDroid
         Built<GheroFieldsFragmentData__asDroid,
             GheroFieldsFragmentData__asDroidBuilder>,
         GheroFieldsFragmentData,
-        GheroFieldsFragment__asDroid,
         GdroidFieldsFragment {
   GheroFieldsFragmentData__asDroid._();
 
@@ -802,7 +793,6 @@ abstract class GhumanFieldsFragmentData_friends__asDroid
         Built<GhumanFieldsFragmentData_friends__asDroid,
             GhumanFieldsFragmentData_friends__asDroidBuilder>,
         GhumanFieldsFragmentData_friends,
-        GhumanFieldsFragment_friends__asDroid,
         GdroidFieldsFragment {
   GhumanFieldsFragmentData_friends__asDroid._();
 
@@ -842,8 +832,7 @@ abstract class GhumanFieldsFragmentData_friends__asHuman
     implements
         Built<GhumanFieldsFragmentData_friends__asHuman,
             GhumanFieldsFragmentData_friends__asHumanBuilder>,
-        GhumanFieldsFragmentData_friends,
-        GhumanFieldsFragment_friends__asHuman {
+        GhumanFieldsFragmentData_friends {
   GhumanFieldsFragmentData_friends__asHuman._();
 
   factory GhumanFieldsFragmentData_friends__asHuman(

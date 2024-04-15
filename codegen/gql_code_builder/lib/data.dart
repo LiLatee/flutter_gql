@@ -76,6 +76,7 @@ Library buildDataLibrary(
   );
 }
 
+/// Creates a Map of all fragments in the file including imported fragments.
 Map<String, SourceSelections> _fragmentMap(SourceNode source) => {
       for (final def
           in source.document.definitions.whereType<FragmentDefinitionNode>())
@@ -86,8 +87,12 @@ Map<String, SourceSelections> _fragmentMap(SourceNode source) => {
       for (final import in source.imports) ..._fragmentMap(import)
     };
 
-Map<String, Set<String>> _possibleTypesMap(SourceNode source,
-    [Set<String>? visitedSource, Map<String, Set<String>>? possibleTypesMap]) {
+/// Check `possible_types.dart` description.
+Map<String, Set<String>> _possibleTypesMap(
+  SourceNode source, [
+  Set<String>? visitedSource,
+  Map<String, Set<String>>? possibleTypesMap,
+]) {
   visitedSource ??= {};
   possibleTypesMap ??= {};
 
@@ -107,11 +112,12 @@ Map<String, Set<String>> _possibleTypesMap(SourceNode source,
 }
 
 Map<String, Reference> _dataClassAliasMap(
-    SourceNode source,
-    Map<String, SourceSelections> fragmentMap,
-    Map<String, Set<String>> possibleTypesMap,
-    [Map<String, Reference>? aliasMap,
-    Set<String>? visitedSource]) {
+  SourceNode source,
+  Map<String, SourceSelections> fragmentMap,
+  Map<String, Set<String>> possibleTypesMap, [
+  Map<String, Reference>? aliasMap,
+  Set<String>? visitedSource,
+]) {
   aliasMap ??= {};
   visitedSource ??= {};
 
@@ -119,7 +125,12 @@ Map<String, Reference> _dataClassAliasMap(
     if (!visitedSource!.contains(source.url)) {
       visitedSource.add(source.url);
       _dataClassAliasMap(
-          s, fragmentMap, possibleTypesMap, aliasMap, visitedSource);
+        s,
+        fragmentMap,
+        possibleTypesMap,
+        aliasMap,
+        visitedSource,
+      );
     }
   });
 
@@ -170,8 +181,10 @@ void _dataClassAliasMapDFS({
   if (selections.isEmpty) return;
 
   // shrink selections to extract untouched fragments while visiting children.
-  final shrunkenSelections =
-      shrinkSelections(mergeSelections(selections, fragmentMap), fragmentMap);
+  final shrunkenSelections = shrinkSelections(
+    mergeSelections(selections, fragmentMap),
+    fragmentMap,
+  );
 
   // alias single fragment and finish
   final selectionsWithoutTypename = shrunkenSelections
